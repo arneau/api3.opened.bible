@@ -1,7 +1,7 @@
 var path = require('path')
 
 var config = {
-  entry: './app/graphiql.jsx',
+  entry: './graphiql/graphiql.jsx',
   output: {
     path: path.resolve('graphiql'),
     filename: 'graphiql.js'
