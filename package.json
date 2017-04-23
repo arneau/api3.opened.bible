@@ -1,0 +1,19 @@
+{
+	"name": "api3.opened.bible",
+	"version": "1.0.0",
+	"dependencies": {
+		"cors": "^2.8.3",
+		"express": "^4.15.2",
+		"express-graphql": "^0.6.4",
+		"graphql": "^0.9.3"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.24.1",
+		"babel-preset-es2015": "^6.24.1",
+		"babel-preset-react": "^6.24.1"
+	},
+	"scripts": {
+		"build": "babel app/app.js -o server/app.js && babel app/graphiql.jsx -o graphiql/graphiql.js",
+		"start": "node server/app.js"
+	}
+}
