@@ -17,7 +17,9 @@
     "webpack": "^2.4.1"
   },
   "scripts": {
-    "build": "babel app/app.js -o server/app.js && webpack -p",
-    "start": "node server/app.js"
+    "build-all": "babel app/app.js -o server/app.js && webpack -p",
+    "build-graphql": "babel app/app.js -o server/app.js",
+    "build-graphiql": "webpack -p",
+    "start-graphql": "npm run build-graphql && node server/app.js"
   }
 }
