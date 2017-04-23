@@ -1,9 +1,10 @@
 import React from 'react'
 import { render } from 'react-dom'
+
 import GraphiQL from 'graphiql'
 
 function graphQLFetcher (params) {
-  return fetch('/', {
+  return fetch('/graphql', {
     method: 'post',
     headers: {
       'Content-Type': 'application/json'

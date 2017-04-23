@@ -1,16 +1,17 @@
-var { buildSchema } = require('graphql')
-var express = require('express')
-var graphqlHTTP = require('express-graphql')
-var cors = require('cors')
+import { buildSchema } from 'graphql'
 
-// Construct a schema, using GraphQL schema language
+import express from 'express'
+import graphqlHTTP from 'express-graphql'
+
+import cors from 'cors'
+import path from 'path'
+
 var schema = buildSchema(`
-  type Query {
-    hello: String
-  }
+type Query {
+  hello: String
+}
 `)
 
-// The root provides a resolver function for each API endpoint
 var root = {
   hello: () => {
     return 'Hello world!';
@@ -23,13 +24,13 @@ app.use(cors({
   'Access-Control-Allow-Origin': '*'
 }))
 
-app.use('/', graphqlHTTP({
+app.use('/graphql', graphqlHTTP({
   schema: schema,
   rootValue: root
 }))
 
-app.get('/graphiql', (req, res) => res.sendFile('../graphiql/index.html'))
+app.use('/graphiql', express.static(path.resolve('graphiql')))
 
 app.listen(4000)
 
-console.log('Running a GraphQL API server at localhost:4000/graphql')
+console.log('Servers running!\nGraphQL server: localhost:4000/graphql\nGraphiQL browser: localhost:4000/graphql')
