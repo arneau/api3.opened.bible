@@ -5,6 +5,8 @@ import {
 
 import BookType from '../types/BookType'
 
+import Data from '../Data'
+
 const BookField = {
   type: BookType,
   args: {
@@ -15,7 +17,7 @@ const BookField = {
       type: GraphQLString
     }
   },
-  resolve: (root, args) => []
+  resolve: (root, args) => Data.Books[args.id]
 }
 
 export default BookField

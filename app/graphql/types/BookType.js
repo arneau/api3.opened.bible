@@ -7,6 +7,8 @@ import {
 
 import ChapterType from './ChapterType'
 
+import Data from '../Data'
+
 const BookType = new GraphQLObjectType({
   name: 'Book',
   fields: () => ({
@@ -15,12 +17,7 @@ const BookType = new GraphQLObjectType({
     },
     Chapters: {
       type: new GraphQLList(ChapterType),
-      resolve: (root, args) => {
-        return [
-          1,
-          2
-        ].map(id => []);
-      }
+      resolve: (root, args) => Data.Books[root.id].Chapters.map(id => Data.Chapters[id])
     },
     name: {
       type: GraphQLString

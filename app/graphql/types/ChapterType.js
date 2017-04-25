@@ -5,6 +5,8 @@ import {
 
 import BookType from './BookType'
 
+import Data from '../Data'
+
 const ChapterType = new GraphQLObjectType({
   name: 'Chapter',
   fields: () => ({
@@ -13,7 +15,7 @@ const ChapterType = new GraphQLObjectType({
     },
     Book: {
       type: BookType,
-      resolve: (root, args) => []
+      resolve: (root, args) => Data.Books[root.Book]
     },
     number: {
       type: GraphQLInt
