@@ -1,7 +1,6 @@
 import {
-  GraphQLObjectType,
   GraphQLInt,
-  GraphQLString
+  GraphQLObjectType
 } from 'graphql'
 
 import BookType from './BookType'
