@@ -4,6 +4,8 @@ import {
 
 import VerseTranslationType from '../types/VerseTranslationType'
 
+import Data from '../Data'
+
 const VerseTranslationField = {
   type: VerseTranslationType,
   args: {
@@ -11,7 +13,7 @@ const VerseTranslationField = {
       type: GraphQLInt
     }
   },
-  resolve: (root, args) => []
+  resolve: (root, args) => Data.VerseTranslations[args.id]
 }
 
 export default VerseTranslationField

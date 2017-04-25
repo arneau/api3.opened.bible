@@ -5,6 +5,8 @@ import {
 
 import TranslationType from '../types/TranslationType'
 
+import Data from '../Data'
+
 const TranslationField = {
   type: TranslationType,
   args: {
@@ -15,7 +17,7 @@ const TranslationField = {
       type: GraphQLString
     }
   },
-  resolve: (root, args) => []
+  resolve: (root, args) => Data.Translations[args.id]
 }
 
 export default TranslationField

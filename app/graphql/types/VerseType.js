@@ -6,6 +6,8 @@ import {
 
 import VerseTranslationType from './VerseTranslationType'
 
+import Data from '../Data'
+
 const VerseType = new GraphQLObjectType({
   name: 'Verse',
   fields: () => ({
@@ -17,12 +19,7 @@ const VerseType = new GraphQLObjectType({
     },
     VerseTranslations: {
       type: new GraphQLList(VerseTranslationType),
-      resolve: (root, args) => {
-        return [
-          1,
-          2
-        ].map(id => []);
-      }
+      resolve: (root, args) => Data.Verses[root.id].VerseTranslations.map(id => Data.VerseTranslations[id])
     }
   })
 })

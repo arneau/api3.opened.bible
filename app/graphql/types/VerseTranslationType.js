@@ -7,6 +7,8 @@ import {
 
 import TranslationType from './TranslationType'
 
+import Data from '../Data'
+
 const VerseTranslationType = new GraphQLObjectType({
   name: 'VerseTranslation',
   fields: () => ({
@@ -18,7 +20,7 @@ const VerseTranslationType = new GraphQLObjectType({
     },
     Translation: {
       type: TranslationType,
-      resolve: (root, args) => []
+      resolve: (root, args) => Data.Translations[root.Translation]
     }
   })
 })

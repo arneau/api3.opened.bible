@@ -5,6 +5,8 @@ import {
 
 import VerseType from '../types/VerseType'
 
+import Data from '../Data'
+
 const VerseField = {
   type: VerseType,
   args: {
@@ -15,7 +17,7 @@ const VerseField = {
       type: GraphQLString
     }
   },
-  resolve: (root, args) => []
+  resolve: (root, args) => Data.Verses[args.id]
 }
 
 export default VerseField
