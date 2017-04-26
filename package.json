@@ -12,14 +12,18 @@
     "express-graphql": "^0.6.4",
     "graphiql": "^0.10.1",
     "graphql": "^0.9.3",
+    "mysql": "^2.13.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "sequelize": "^3.30.4",
     "webpack": "^2.4.1"
   },
   "scripts": {
-    "build-all": "npm run build-graphql && npm run build-graphiql",
-    "build-graphql": "rm -rf server && babel app -d server",
+    "build-all": "npm run build-app && npm run build-graphiql",
+    "build-app": "rm -rf server && babel app -d server",
     "build-graphiql": "webpack -p",
-    "start-graphql": "npm run build-graphql && node server/app.js"
+    "seed-db": "npm run build-app && node server/database/seed.js",
+    "test-db": "npm run build-app && node server/database/test.js",
+    "start-app": "npm run build-app && node server/app.js"
   }
 }
