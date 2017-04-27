@@ -2,11 +2,11 @@ import {
   GraphQLObjectType
 } from 'graphql'
 
-import BookField from '../fields/BookField'
-import ChapterField from '../fields/ChapterField'
-import TranslationField from '../fields/TranslationField'
-import VerseField from '../fields/VerseField'
-import VerseTranslationField from '../fields/VerseTranslationField'
+import BookField from '../fields/Book'
+import ChapterField from '../fields/Chapter'
+import TranslationField from '../fields/Translation'
+import VerseField from '../fields/Verse'
+import VerseTranslationField from '../fields/VerseTranslation'
 
 const QueryType = new GraphQLObjectType({
   name: 'Query',

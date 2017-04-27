@@ -3,9 +3,9 @@ import {
   GraphQLString
 } from 'graphql'
 
-import ChapterType from '../types/ChapterType'
+import ChapterType from '../types/Chapter'
 
-import Data from '../Data'
+import ChapterModel from '../../database/models/Chapter'
 
 const ChapterField = {
   type: ChapterType,
@@ -17,7 +17,7 @@ const ChapterField = {
       type: GraphQLString
     }
   },
-  resolve: (root, args) => Data.Chapters[args.id]
+  resolve: async (root, args) => await ChapterModel.findByPrimary(args.id)
 }
 
 export default ChapterField

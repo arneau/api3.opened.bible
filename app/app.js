@@ -16,4 +16,4 @@ app.use(cors({
 
 app.listen(4000)
 
-console.log('\nNode is running!\nGraphQL server: localhost:4000/graphql\nGraphiQL browser: localhost:4000/graphql')
+console.log('\nNode is running!\nGraphQL server: localhost:4000/graphql\nGraphiQL browser: localhost:4000/graphql\n')

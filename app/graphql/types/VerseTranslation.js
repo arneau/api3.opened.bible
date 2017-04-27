@@ -5,7 +5,7 @@ import {
   GraphQLString
 } from 'graphql'
 
-import TranslationType from './TranslationType'
+import TranslationType from './Translation'
 
 import Data from '../Data'
 

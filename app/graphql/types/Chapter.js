@@ -4,10 +4,11 @@ import {
   GraphQLObjectType
 } from 'graphql'
 
-import BookType from './BookType'
-import VerseType from './VerseType'
+import BookType from './Book'
+import VerseType from './Verse'
 
-import Data from '../Data'
+import BookModel from '../../database/models/Book'
+import VerseModel from '../../database/models/Verse'
 
 const ChapterType = new GraphQLObjectType({
   name: 'Chapter',
@@ -17,14 +18,18 @@ const ChapterType = new GraphQLObjectType({
     },
     Book: {
       type: BookType,
-      resolve: (root, args) => Data.Books[root.Book]
+      resolve: async (root, args) => await BookModel.findByPrimary(root.book_id)
     },
     number: {
       type: GraphQLInt
     },
     Verses: {
       type: new GraphQLList(VerseType),
-      resolve: (root, args) => Data.Chapters[root.id].Verses.map(id => Data.Verses[id])
+      resolve: async (root, args) => await VerseModel.findAll({
+        where: {
+          chapter_id: root.id
+        }
+      })
     }
   })
 })

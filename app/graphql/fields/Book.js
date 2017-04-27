@@ -3,9 +3,9 @@ import {
   GraphQLString
 } from 'graphql'
 
-import BookType from '../types/BookType'
+import BookType from '../types/Book'
 
-import Data from '../Data'
+import BookModel from '../../database/models/Book'
 
 const BookField = {
   type: BookType,
@@ -17,7 +17,7 @@ const BookField = {
       type: GraphQLString
     }
   },
-  resolve: (root, args) => Data.Books[args.id]
+  resolve: async (root, args) => await BookModel.findByPrimary(args.id)
 }
 
 export default BookField

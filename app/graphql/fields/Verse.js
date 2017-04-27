@@ -3,9 +3,9 @@ import {
   GraphQLString
 } from 'graphql'
 
-import VerseType from '../types/VerseType'
+import VerseType from '../types/Verse'
 
-import Data from '../Data'
+import VerseModel from '../../database/models/Verse'
 
 const VerseField = {
   type: VerseType,
@@ -17,7 +17,7 @@ const VerseField = {
       type: GraphQLString
     }
   },
-  resolve: (root, args) => Data.Verses[args.id]
+  resolve: async (root, args) => await VerseModel.findByPrimary(args.id)
 }
 
 export default VerseField

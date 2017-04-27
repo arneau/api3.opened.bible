@@ -2,7 +2,7 @@ import Sequelize from 'sequelize'
 
 import Database from '../Database'
 
-export default Database.define('translation', {
+const TranslationModel = Database.define('translation', {
   code: {
     allowNull: false,
     type: Sequelize.STRING
@@ -12,3 +12,12 @@ export default Database.define('translation', {
     type: Sequelize.STRING
   }
 })
+
+// TranslationModel.getById = (id) => TranslationModel.find({
+//   where: {
+//     id: id
+//   }
+// })
+// .then((data) => data.dataValues)
+
+export default TranslationModel

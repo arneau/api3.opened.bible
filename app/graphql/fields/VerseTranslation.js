@@ -2,7 +2,7 @@ import {
   GraphQLInt
 } from 'graphql'
 
-import VerseTranslationType from '../types/VerseTranslationType'
+import VerseTranslationType from '../types/VerseTranslation'
 
 import Data from '../Data'
 

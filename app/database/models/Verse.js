@@ -4,17 +4,13 @@ import Database from '../Database'
 
 import ChapterModel from './Chapter'
 
-export default Database.define('verse', {
-  chapter_id: {
-    allowNull: false,
-    references: {
-      model: ChapterModel,
-      key: 'id'
-    },
-    type: Sequelize.INTEGER
-  },
+const VerseModel = Database.define('verse', {
   number: {
     allowNull: false,
     type: Sequelize.INTEGER
   }
 })
+
+VerseModel.belongsTo(ChapterModel)
+
+export default VerseModel

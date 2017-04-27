@@ -4,9 +4,9 @@ import {
   GraphQLObjectType
 } from 'graphql'
 
-import VerseTranslationType from './VerseTranslationType'
+import VerseTranslationType from './VerseTranslation'
 
-import Data from '../Data'
+import VerseTranslationModel from '../../database/models/VerseTranslation'
 
 const VerseType = new GraphQLObjectType({
   name: 'Verse',
@@ -19,7 +19,11 @@ const VerseType = new GraphQLObjectType({
     },
     VerseTranslations: {
       type: new GraphQLList(VerseTranslationType),
-      resolve: (root, args) => Data.Verses[root.id].VerseTranslations.map(id => Data.VerseTranslations[id])
+      resolve: async (root, args) => await VerseTranslationModel.findAll({
+        where: {
+          verse_id: root.id
+        }
+      })
     }
   })
 })

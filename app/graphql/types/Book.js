@@ -5,9 +5,9 @@ import {
   GraphQLString
 } from 'graphql'
 
-import ChapterType from './ChapterType'
+import ChapterType from './Chapter'
 
-import Data from '../Data'
+import ChapterModel from '../../database/models/Chapter'
 
 const BookType = new GraphQLObjectType({
   name: 'Book',
@@ -17,7 +17,11 @@ const BookType = new GraphQLObjectType({
     },
     Chapters: {
       type: new GraphQLList(ChapterType),
-      resolve: (root, args) => Data.Books[root.id].Chapters.map(id => Data.Chapters[id])
+      resolve: async (root, args) => await ChapterModel.findAll({
+        where: {
+          book_id: root.id
+        }
+      })
     },
     name: {
       type: GraphQLString
