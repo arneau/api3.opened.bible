@@ -17,9 +17,12 @@ const TranslationField = {
       type: GraphQLString
     }
   },
-  resolve: async (root, args) => {
-    let translation = await TranslationModel.findByPrimary(args.id)
-    return translation.get()
+  resolve: (root, args) => {
+    if (args.id) {
+      return TranslationModel.findById(args.id)
+    } else if (args.code) {
+      return TranslationModel.findByCode(args.code)
+    }
   }
 }
 

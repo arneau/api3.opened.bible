@@ -17,11 +17,11 @@ const BookField = {
       type: GraphQLString
     }
   },
-  resolve: async (root, args) => {
+  resolve: (root, args) => {
     if (args.id) {
-      return await BookModel.findById(args.id)
+      return BookModel.findById(args.id)
     } else if (args.reference) {
-      return await BookModel.findByReference(args.reference)
+      return BookModel.findByReference(args.reference)
     }
   }
 }

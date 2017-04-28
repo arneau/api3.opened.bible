@@ -13,11 +13,19 @@ const TranslationModel = Database.define('translation', {
   }
 })
 
-// TranslationModel.getById = (id) => TranslationModel.find({
-//   where: {
-//     id: id
-//   }
-// })
-// .then((data) => data.dataValues)
+TranslationModel.findById = (id) => {
+  return TranslationModel.find({
+    where: {
+      id
+    }
+  })
+}
+TranslationModel.findByCode = (code) => {
+  return TranslationModel.find({
+    where: {
+      code
+    }
+  })
+}
 
 export default TranslationModel

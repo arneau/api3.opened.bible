@@ -18,17 +18,11 @@ const ChapterField = {
       type: GraphQLString
     }
   },
-  resolve: async (root, args) => {
+  resolve: (root, args) => {
     if (args.id) {
-      return await ChapterModel.findByPrimary(args.id)
+      return ChapterModel.findById(args.id)
     } else if (args.reference) {
-      let data = getReferenceData(args.reference)
-      console.log(data)
-      return await ChapterModel.find({
-        where: {
-          name: data.chapter
-        }
-      })
+      return ChapterModel.findByReference(args.reference)
     }
   }
 }
