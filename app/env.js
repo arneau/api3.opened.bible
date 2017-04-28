@@ -1,1 +1,0 @@
-export default (name) => process.env['npm_config_' + name]
