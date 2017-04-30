@@ -23,6 +23,13 @@ VerseModel.findById = (id) => {
     }
   })
 }
+VerseModel.findAllByChapterId = (id) => {
+  return VerseModel.findAll({
+    where: {
+      chapter_id: id
+    }
+  })
+}
 VerseModel.findAllByReference = (reference) => {
   let data = getReferenceData(reference), where
   if (!data.verses.length) {

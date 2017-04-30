@@ -15,4 +15,12 @@ const VerseTranslationModel = Database.define('verse_translation', {
 VerseTranslationModel.belongsTo(TranslationModel)
 VerseTranslationModel.belongsTo(VerseModel)
 
+VerseTranslationModel.findAllByVerseId = (id) => {
+  return VerseTranslationModel.findAll({
+    where: {
+      verse_id: id
+    }
+  })
+}
+
 export default VerseTranslationModel

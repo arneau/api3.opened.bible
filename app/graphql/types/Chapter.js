@@ -18,18 +18,14 @@ const ChapterType = new GraphQLObjectType({
     },
     Book: {
       type: BookType,
-      resolve: async (root, args) => await BookModel.findByPrimary(root.book_id)
+      resolve: (root, args) => BookModel.findById(root.book_id)
     },
     number: {
       type: GraphQLInt
     },
     Verses: {
       type: new GraphQLList(VerseType),
-      resolve: async (root, args) => await VerseModel.findAll({
-        where: {
-          chapter_id: root.id
-        }
-      })
+      resolve: (root, args) => VerseModel.findAllByChapterId(root.id)
     }
   })
 })

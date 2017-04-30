@@ -14,7 +14,7 @@ const VersesField = {
       type: GraphQLString
     }
   },
-  resolve: async (root, args) => await VerseModel.findAllByReference(args.reference)
+  resolve: (root, args) => VerseModel.findAllByReference(args.reference)
 }
 
 export default VersesField
