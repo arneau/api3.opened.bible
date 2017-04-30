@@ -7,6 +7,7 @@ import ChapterField from '../fields/Chapter'
 import PassageField from '../fields/Passage'
 import TranslationField from '../fields/Translation'
 import VerseField from '../fields/Verse'
+import VersesField from '../fields/Verses'
 import VerseTranslationField from '../fields/VerseTranslation'
 
 const QueryType = new GraphQLObjectType({
@@ -17,6 +18,7 @@ const QueryType = new GraphQLObjectType({
     Passage: PassageField,
     Translation: TranslationField,
     Verse: VerseField,
+    Verses: VersesField,
     VerseTranslation: VerseTranslationField
   }
 })
