@@ -1,19 +1,32 @@
 import express from 'express'
 import graphqlHTTP from 'express-graphql'
-
 import cors from 'cors'
 import path from 'path'
+import ip from 'ip'
 
 import Schema from './graphql/Schema'
 
 const app = express()
 
-app.use(cors({
+const headers = cors({
   'Access-Control-Allow-Origin': '*'
-})).use('/graphql', graphqlHTTP({
+})
+const graphql = graphqlHTTP({
   schema: Schema
-})).use('/graphiql', express.static(path.resolve('graphiql')))
+})
+const graphiql = express.static(path.resolve('graphiql'))
 
-app.listen(4000)
+var host
+if (process.env.NODE_ENV == 'local') {
+  host = 'localhost'
+} else if (process.env.NODE_ENV == 'lan') {
+  host = ip.address()
+}
+const port = 4000
 
-console.log('\nNode is running!\nGraphQL server: localhost:4000/graphql\nGraphiQL browser: localhost:4000/graphql\n')
+app.use(headers)
+.use('/graphql', graphql)
+.use('/graphiql', graphiql)
+.listen(port, host)
+
+console.log(`Node is running!\nGraphQL server: ${host}:${port}/graphql\nGraphiQL browser: ${host}:${port}/graphiql\n`)

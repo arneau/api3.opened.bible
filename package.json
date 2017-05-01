@@ -13,6 +13,7 @@
     "express-graphql": "^0.6.4",
     "graphiql": "^0.10.1",
     "graphql": "^0.9.3",
+    "ip": "^1.1.5",
     "mysql": "^2.13.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -20,11 +21,9 @@
     "webpack": "^2.4.1"
   },
   "scripts": {
-    "build-all": "npm run build-app && npm run build-graphiql",
-    "build-app": "rm -rf server && babel app -d server",
+    "build-graphql": "rm -rf server && babel app -d server",
     "build-graphiql": "webpack -p",
-    "seed-db": "npm run build-app && babel-node server/database/seed.js",
-    "test-db": "npm run build-app && babel-node server/database/test.js",
-    "start-app": "npm run build-app && babel-node server/app.js"
+    "start-local": "NODE_ENV=local babel-node server/app.js",
+    "start-lan": "NODE_ENV=lan babel-node server/app.js"
   }
 }
