@@ -3,7 +3,7 @@ import {
   GraphQLString
 } from 'graphql'
 
-import PassageType from '../types/Passage'
+import PassageType from '../../types/Passage'
 
 const PassageField = {
   type: PassageType,

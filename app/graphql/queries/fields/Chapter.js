@@ -3,10 +3,8 @@ import {
   GraphQLString
 } from 'graphql'
 
-import ChapterType from '../types/Chapter'
-import ChapterModel from '../../database/models/Chapter'
-
-import { getReferenceData } from '../../functions'
+import ChapterType from '../../types/Chapter'
+import ChapterModel from '../../../database/models/Chapter'
 
 const ChapterField = {
   type: ChapterType,

@@ -3,9 +3,9 @@ import {
   GraphQLString
 } from 'graphql'
 
-import VerseType from '../types/Verse'
+import VerseType from '../../types/Verse'
 
-import VerseModel from '../../database/models/Verse'
+import VerseModel from '../../../database/models/Verse'
 
 const VerseField = {
   type: VerseType,

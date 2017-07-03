@@ -2,9 +2,9 @@ import {
   GraphQLInt
 } from 'graphql'
 
-import VerseTranslationType from '../types/VerseTranslation'
+import VerseTranslationType from '../../types/VerseTranslation'
 
-import Data from '../Data'
+import Data from '../../Data'
 
 const VerseTranslationField = {
   type: VerseTranslationType,

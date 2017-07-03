@@ -3,9 +3,9 @@ import {
   GraphQLString
 } from 'graphql'
 
-import BookType from '../types/Book'
+import BookType from '../../types/Book'
 
-import BookModel from '../../database/models/Book'
+import BookModel from '../../../database/models/Book'
 
 const BookField = {
   type: BookType,

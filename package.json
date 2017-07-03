@@ -24,7 +24,7 @@
     "build-graphql": "rm -rf server && babel app -d server",
     "build-graphiql": "webpack -p",
     "start": "babel-node server/app.js",
-    "start-local": "NODE_ENV=local npm run start",
-    "start-lan": "NODE_ENV=lan npm run start"
+    "start-lan": "NODE_ENV=lan npm run start",
+    "start-local": "NODE_ENV=local npm run start"
   }
 }

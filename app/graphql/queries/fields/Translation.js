@@ -3,9 +3,9 @@ import {
   GraphQLString
 } from 'graphql'
 
-import TranslationType from '../types/Translation'
+import TranslationType from '../../types/Translation'
 
-import TranslationModel from '../../database/models/Translation'
+import TranslationModel from '../../../database/models/Translation'
 
 const TranslationField = {
   type: TranslationType,
