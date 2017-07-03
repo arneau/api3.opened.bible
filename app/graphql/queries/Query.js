@@ -4,6 +4,7 @@ import {
 
 import BookField from './fields/Book'
 import ChapterField from './fields/Chapter'
+import DoctrineField from './fields/Doctrine'
 import PassageField from './fields/Passage'
 import TagField from './fields/Tag'
 import TranslationField from './fields/Translation'
@@ -16,6 +17,7 @@ const QueryType = new GraphQLObjectType({
   fields: {
     Book: BookField,
     Chapter: ChapterField,
+    Doctrine: DoctrineField,
     Passage: PassageField,
     Tag: TagField,
     Translation: TranslationField,
